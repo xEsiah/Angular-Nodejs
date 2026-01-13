@@ -1,0 +1,17 @@
+<li class="list-group-item">
+  <h3>Film: {{ filmName }}</h3>
+  <input type="text" class="form-control" name="filmName" [(ngModel)]="filmName" />
+  <img class="affiche" [src]="filmAffiche" />
+  <div>
+    <div class="onAir" *ngIf="filmOnAir == 'Blue-Ray'">
+      <h3>Visibilité: {{ getOnAir() }}</h3>
+      <img src="/blueray.png" />
+    </div>
+    <div class="onAir" *ngIf="filmOnAir == 'En Salle'">
+      <img src="/ensalle.jpg" />
+    </div>
+  </div>
+  <button class="btn btn-outline-success" (click)="onWatchFilm()">Regarder</button>
+  <button class="btn btn-outline-danger" (click)="onStopWatchFilm()">Arrêter de regarder</button>
+  <p #lectureEnCours style="color: red">Lecture en cours...</p>
+</li>

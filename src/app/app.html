@@ -1,0 +1,24 @@
+<div style="text-align: center">
+  <h1>Bienvenu au Cinéma Pinder !</h1>
+</div>
+
+<ul class="list-group">
+  <app-film
+    [filmName]="'Jurassic Park'"
+    [filmOnAir]="'Blue-Ray'"
+    [filmAffiche]="'https://m.media-amazon.com/images/I/71NCcyIsWwL._AC_UF350,350_QL80_.jpg'"
+  ></app-film>
+  <app-film
+    [filmName]="'Star Wars'"
+    [filmOnAir]="'Blue-Ray'"
+    [filmAffiche]="'starwars.jpg'"
+  ></app-film>
+  <app-film
+    [filmName]="'Dune'"
+    [filmOnAir]="'En Salle'"
+    [filmAffiche]="
+      'https://static.posters.cz/image/1300/affiches-et-posters/dune-partie-1-i122815.jpg'
+    "
+  ></app-film>
+</ul>
+<router-outlet />
