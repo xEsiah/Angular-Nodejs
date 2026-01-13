@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { FilmService } from './services/film/film-service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,7 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss',
 })
 export class AppComponent {
-  title = 'Film';
-
+  private _Film = inject(FilmService);
   films = [
     {
       title: 'Jurissic Park',

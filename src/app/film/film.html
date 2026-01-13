@@ -1,17 +1,28 @@
-<li class="list-group-item">
+<li
+  class="list-group-item"
+  [ngClass]="{
+    'list-group-item-info': filmOnAir == true,
+    'list-group-item-warning': filmOnAir == false
+  }"
+>
   <h3>Film: {{ filmName }}</h3>
   <input type="text" class="form-control" name="filmName" [(ngModel)]="filmName" />
   <img class="affiche" [src]="filmAffiche" />
   <div>
-    <div class="onAir" *ngIf="filmOnAir == 'Blue-Ray'">
-      <h3>Visibilité: {{ getOnAir() }}</h3>
-      <img src="/blueray.png" />
+    <div>
+      <input type="checkbox" [(ngModel)]="filmOnAir" /> Mettre en salle
+      <p [ngStyle]="{ color: changeColor() }">Visibilité: {{ getOnAir() }}</p>
     </div>
-    <div class="onAir" *ngIf="filmOnAir == 'En Salle'">
+    <div class="onAir" *ngIf="filmOnAir == false">
+      <img src="/blueray.png" alt="Blue-Ray" />
+    </div>
+    <div class="onAir" *ngIf="filmOnAir == true" alt="Cinéma">
       <img src="/ensalle.jpg" />
     </div>
   </div>
-  <button class="btn btn-outline-success" (click)="onWatchFilm()">Regarder</button>
-  <button class="btn btn-outline-danger" (click)="onStopWatchFilm()">Arrêter de regarder</button>
+  <div>
+    <button class="btn btn-outline-success" (click)="onWatchFilm()">Regarder</button>
+    <button class="btn btn-outline-danger" (click)="onStopWatchFilm()">Arrêter de regarder</button>
+  </div>
   <p #lectureEnCours style="color: red">Lecture en cours...</p>
 </li>
